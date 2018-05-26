@@ -1,4 +1,3 @@
 *.o
 st
-config.h
 *.orig
