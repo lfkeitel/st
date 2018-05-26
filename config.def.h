@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Liberation Mono:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -63,7 +63,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "screen-256color";
 
 /*
  * spaces per tab
@@ -83,34 +83,34 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-unsigned int alpha = 0xcc;
+unsigned int alpha = 220;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
 	[0] = "#000000", /* black   */
-	[1] = "#ff5555", /* red     */
-	[2] = "#50fa7b", /* green   */
-	[3] = "#f1fa8c", /* yellow  */
-	[4] = "#bd93f9", /* blue    */
-	[5] = "#ff79c6", /* magenta */
-	[6] = "#8be9fd", /* cyan    */
-	[7] = "#bbbbbb", /* white   */
+	[1] = "#b21818", /* red     */
+	[2] = "#18b218", /* green   */
+	[3] = "#b26818", /* yellow  */
+	[4] = "#1818b2", /* blue    */
+	[5] = "#b218b2", /* magenta */
+	[6] = "#18b2b2", /* cyan    */
+	[7] = "#b2b2b2", /* white   */
 
 	/* 8 bright colors */
-	[8]  = "#44475a", /* black   */
-	[9]  = "#ff5555", /* red     */
-	[10] = "#50fa7b", /* green   */
-	[11] = "#f1fa8c", /* yellow  */
-	[12] = "#bd93f9", /* blue    */
-	[13] = "#ff79c6", /* magenta */
-	[14] = "#8be9fd", /* cyan    */
+	[8]  = "#686868", /* black   */
+	[9]  = "#ff5454", /* red     */
+	[10] = "#54ff54", /* green   */
+	[11] = "#ffff54", /* yellow  */
+	[12] = "#5454ff", /* blue    */
+	[13] = "#ff54ff", /* magenta */
+	[14] = "#54ffff", /* cyan    */
 	[15] = "#ffffff", /* white   */
 
 	/* special colors */
 	[255] = 0,
-	[256] = "#282a36", /* background */
-	[257] = "#f8f8f2", /* foreground */
+	[256] = "#000000", /* background */
+	[257] = "#b2b2b2", /* foreground */
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"black",
