@@ -1623,6 +1623,7 @@ tsetmode(int priv, int set, int *args, int narg)
 		} else {
 			switch (*args) {
 			case 0:  /* Error (IGNORED) */
+			case 34:
 				break;
 			case 2:
 				xsetmode(set, MODE_KBDLOCK);
@@ -1925,6 +1926,8 @@ strhandle(void)
 				}
 			}
 			return;
+		case 50:
+			return; // Ignore
 		case 4: /* color set */
 			if (narg < 3)
 				break;
