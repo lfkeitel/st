@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=15:antialias=true:autohint=true";
+static char *font = "mono:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -80,7 +80,7 @@ char *termname = "screen-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 4;
+unsigned int tabspaces = 8;
 
 /* bg opacity */
 unsigned int alpha = 220;
@@ -147,8 +147,8 @@ static unsigned int cursorshape = 2;
  * Default columns and rows numbers
  */
 
-static unsigned int cols = 80;
-static unsigned int rows = 24;
+static unsigned int cols = 125;
+static unsigned int rows = 30;
 
 /*
  * Default colour and shape of the mouse cursor
@@ -196,6 +196,10 @@ static Shortcut shortcuts[] = {
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
+	{ MODKEY|ShiftMask,     XK_K,           zoom,           {.f = +1} },
+	{ MODKEY|ShiftMask,     XK_J,           zoom,           {.f = -1} },
+	{ MODKEY|ShiftMask,     XK_U,           zoom,           {.f = +2} },
+	{ MODKEY|ShiftMask,     XK_D,           zoom,           {.f = -2} },
 };
 
 /*
