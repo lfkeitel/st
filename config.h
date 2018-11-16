@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+#ifndef CONFIG_H
+#define CONFIG_H
+
 /*
  * appearance
  *
@@ -86,7 +89,7 @@ unsigned int tabspaces = 8;
 unsigned int alpha = 220;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
+char *colorname[] = {
 	/* 8 normal colors */
 	[0] = "#000000", /* black   */
 	[1] = "#b21818", /* red     */
@@ -111,9 +114,8 @@ static const char *colorname[] = {
 	[255] = 0,
 	[256] = "#000000", /* background */
 	[257] = "#b2b2b2", /* foreground */
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"black",
+	[258] = "#000000", /* reserved */
+	[259] = "#000000", /* reserved */
 };
 
 
@@ -482,3 +484,5 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
+
+#endif /* CONFIG_H */
