@@ -60,6 +60,25 @@ This version supports reading some settings from Xresources. Available values ar
 - chscale
 - alpha
 
+## Non-standard ANSI sequences
+
+This version of st supports changing the default background and foreground colors
+at runtime using escape sequences. The sequences don't appear to be used anywhere
+else.
+
+### Change Default Background and Foreground Colors
+
+Foreground ANSI sequence: `ESC 50m` - `ESC 57m`
+Background ANSI sequence: `ESC 60m` - `ESC 67m`
+
+Foreground RGB value: `ESC 58;2;r;g;bm`
+Background RGB value: `ESC 68;2;r;g;bm`
+
+### Change Default Background and Foreground Bright Colors
+
+Foreground ANSI sequence: `ESC 110m` - `ESC 117m`
+Background ANSI sequence: `ESC 120m` - `ESC 127m`
+
 ## Credits
 
 Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.

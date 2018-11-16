@@ -1482,15 +1482,44 @@ tsetattr(int *attr, int l)
 		case 49:
 			term.c.attr.bg = defaultbg;
 			break;
+		case 58:
+			if ((idx = tdefcolor(attr, &i, l)) >= 0)
+				idx &= 0x00ffffff;
+				char* name = malloc(8);
+				sprintf(name, "#%06X\0", idx);
+				colorname[258] = name;
+				defaultfg = 258;
+				xloadcols(); // Reload colors
+			break;
+		case 68:
+			if ((idx = tdefcolor(attr, &i, l)) >= 0) {
+				idx &= 0x00ffffff;
+				char* name = malloc(8);
+				sprintf(name, "#%06X\0", idx);
+				colorname[259] = name;
+				defaultbg = 259;
+				xloadcols(); // Reload colors
+			}
+			break;
 		default:
-			if (BETWEEN(attr[i], 30, 37)) {
+			if (BETWEEN(attr[i], 30, 37)) { // Set fg/bg color
 				term.c.attr.fg = attr[i] - 30;
 			} else if (BETWEEN(attr[i], 40, 47)) {
 				term.c.attr.bg = attr[i] - 40;
-			} else if (BETWEEN(attr[i], 90, 97)) {
+			} else if (BETWEEN(attr[i], 50, 57)) { // Set default fg/bg color
+				defaultfg = attr[i] - 50;
+			} else if (BETWEEN(attr[i], 60, 67)) {
+				defaultbg = attr[i] - 60;
+				xloadcols(); // Reload transparency
+			} else if (BETWEEN(attr[i], 90, 97)) { // Set fg/bg bright color
 				term.c.attr.fg = attr[i] - 90 + 8;
 			} else if (BETWEEN(attr[i], 100, 107)) {
 				term.c.attr.bg = attr[i] - 100 + 8;
+			} else if (BETWEEN(attr[i], 110, 117)) { // Set default fg/bg/ bright color
+				defaultfg = attr[i] - 110 + 8;
+			} else if (BETWEEN(attr[i], 120, 127)) {
+				defaultbg = attr[i] - 120 + 8;
+				xloadcols(); // Reload transparency
 			} else {
 				fprintf(stderr,
 					"erresc(default): gfx attr %d unknown\n",

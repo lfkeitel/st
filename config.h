@@ -88,7 +88,7 @@ unsigned int tabspaces = 8;
 unsigned int alpha = 220;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
+char *colorname[] = {
 	/* 8 normal colors */
 	[0] = "#000000", /* black   */
 	[1] = "#b21818", /* red     */
@@ -110,12 +110,12 @@ static const char *colorname[] = {
 	[15] = "#ffffff", /* white   */
 
 	/* special colors */
+	[255] = "#b2b2b2", /* cursor */
 	[256] = "#000000", /* background */
 	[257] = "#b2b2b2", /* foreground */
-	[258] = "#b2b2b2", /* cursor */
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"black",
+	[258] = "#000000", /* reserved */
+	[259] = "#000000", /* reserved */
 };
 
 
@@ -125,8 +125,8 @@ static const char *colorname[] = {
  */
 unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
-unsigned int defaultcs = 257;
-unsigned int defaultrcs = 257;
+unsigned int defaultcs = 255;
+unsigned int defaultrcs = 255;
 
 /*
  * Colors used, when the specific fg == defaultfg. So in reverse mode this
@@ -186,9 +186,9 @@ ResourcePref resources[] = {
 	{ "color13",      STRING,  &colorname[13] },
 	{ "color14",      STRING,  &colorname[14] },
 	{ "color15",      STRING,  &colorname[15] },
+	{ "cursorColor",  STRING,  &colorname[255] },
 	{ "background",   STRING,  &colorname[256] },
 	{ "foreground",   STRING,  &colorname[257] },
-	{ "cursorColor",  STRING,  &colorname[258] },
 	{ "termname",     STRING,  &termname },
 	{ "shell",        STRING,  &shell },
 	{ "xfps",         INTEGER, &xfps },

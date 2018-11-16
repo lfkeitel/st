@@ -150,3 +150,4 @@ extern unsigned int alpha;
 extern unsigned int defaultfg;
 extern unsigned int defaultbg;
 extern MouseKey mkeys[];
+extern char *colorname[];
