@@ -1485,7 +1485,7 @@ tsetattr(int *attr, int l)
 		case 58:
 			if ((idx = tdefcolor(attr, &i, l)) >= 0)
 				idx &= 0x00ffffff;
-				char* name = malloc(8);
+				char name[8];
 				sprintf(name, "#%06X\0", idx);
 				colorname[258] = name;
 				defaultfg = 258;
@@ -1494,7 +1494,7 @@ tsetattr(int *attr, int l)
 		case 68:
 			if ((idx = tdefcolor(attr, &i, l)) >= 0) {
 				idx &= 0x00ffffff;
-				char* name = malloc(8);
+				char name[8];
 				sprintf(name, "#%06X\0", idx);
 				colorname[259] = name;
 				defaultbg = 259;
